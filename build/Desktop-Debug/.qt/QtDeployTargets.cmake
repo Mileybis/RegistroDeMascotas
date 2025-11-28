@@ -1,2 +1,2 @@
-set(__QT_DEPLOY_TARGET_RegistroDeMascotas_FILE /home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/RegistroDeMascotas)
+set(__QT_DEPLOY_TARGET_RegistroDeMascotas_FILE /home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/bin/RegistroDeMascotas)
 set(__QT_DEPLOY_TARGET_RegistroDeMascotas_TYPE EXECUTABLE)

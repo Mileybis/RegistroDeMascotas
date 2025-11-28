@@ -5,9 +5,5 @@
 /home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/release_translations.dir
 /home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/edit_cache.dir
 /home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/list_install_components.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/install.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/install/local.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/install/strip.dir
 /home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/RegistroDeMascotas_autogen_timestamp_deps.dir
 /home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/RegistroDeMascotas_autogen.dir
