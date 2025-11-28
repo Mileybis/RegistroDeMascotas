@@ -1,9 +1,0 @@
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/RegistroDeMascotas.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/RegistroDeMascotas_lupdate.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/update_translations.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/RegistroDeMascotas_lrelease.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/release_translations.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/edit_cache.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/RegistroDeMascotas_autogen_timestamp_deps.dir
-/home/Saimon/Documentos/Proyectos-git/RegistroDeMascotas/build/Desktop-Debug/CMakeFiles/RegistroDeMascotas_autogen.dir
