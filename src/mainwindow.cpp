@@ -28,7 +28,24 @@ MainWindow::MainWindow(QWidget *parent)
             this,&MainWindow::onMascotaByIdReceived);
     connect(tcpClientManager,&TcpClientManager::mascotaByNameReceived,
             this,&MainWindow::onMascotaByNameReceived);
+    connect(tcpClientManager,&TcpClientManager::MascotaByImagenReceived,
+            this,&MainWindow::onMascotaByImagenReceived);
     tcpClientManager->connectToServer(selectHost(),selectPuerto());
+    //conexiones del controlwidget al main para comunicarse al server
+    connect(controlWidget,&ControlWidget::requestAllMascota,
+            this,&MainWindow::requestAllMascota);
+    connect(controlWidget,&ControlWidget::requestAddMascota,
+            this,&MainWindow::requestAddMascota);
+    connect(controlWidget,&ControlWidget::requestDeleteMascota,
+            this,&MainWindow::requestDeleteMascota);
+    connect(controlWidget,&ControlWidget::requestImagenMascota,
+            this,&MainWindow::requestImagenMascota);
+    connect(controlWidget,&ControlWidget::requestUpdateMascota,
+            this,&MainWindow::requestUpdateMascota);
+    connect(controlWidget,&ControlWidget::requestResearchIdMascota,
+            this,&MainWindow::requestResearchIdMascota);
+    connect(controlWidget,&ControlWidget::requestResearchNameMascota,
+            this,&MainWindow::requestResearchNameMascota);
 }
 int MainWindow::selectPuerto(){
     bool ok;
@@ -58,17 +75,14 @@ void MainWindow::onClientConnected()
 {
     statusBar()->showMessage("Conectado al servidor", 3000);
 }
-
 void MainWindow::onClientDisconnected()
 {
     statusBar()->showMessage("Desconectado del servidor", 3000);
 }
-
 void MainWindow::onClientError(const QString &msg)
 {
     statusBar()->showMessage("Error: " + msg, 5000);
 }
-
 void MainWindow::requestAllMascota(){
     QJsonObject req;
     req["type"]="request_all";
@@ -100,7 +114,7 @@ void MainWindow::requestResearchIdMascota(int id){
 }
 void MainWindow::requestImagenMascota(int id){
     QJsonObject req;
-    req["type"]="id_imagen";
+    req["type"]="view_imagen_id";
     req["id"]=id;
     tcpClientManager->sendJson(req);
 }
@@ -110,7 +124,6 @@ void MainWindow::requestResearchNameMascota(const QString name){
     req["nombre"]=name;
     tcpClientManager->sendJson(req);
 }
-
 void MainWindow::onAllMascotasReceived(const QVector<Mascota>& lista){
     controlWidget->allMascotasReceived(lista);
 }

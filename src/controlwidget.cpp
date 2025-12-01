@@ -59,6 +59,23 @@ void ControlWidget::allMascotasReceived(const QVector<Mascota>& lista)
 
     tabla->resizeColumnsToContents();
 }
+void ControlWidget::ImagenMascota(const QByteArray& img)
+{
+    QPixmap pix;
+
+    // Cargar el pixmap desde los bytes
+    if (!pix.loadFromData(img)) {
+        QMessageBox::warning(this, "Error", "No se pudo cargar la imagen.");
+        return;
+    }
+
+    // Mostrar en el label, escalado correctamente
+    ui->labelImagen->setPixmap(
+        pix.scaled(ui->labelImagen->size(),
+                   Qt::KeepAspectRatio,
+                   Qt::SmoothTransformation)
+        );
+}
 void ControlWidget::insertMascotaResult(bool ok, int id){
     if(ok) QMessageBox::information(this,"Informacion",QString("Se Agrego Con exito: %1").arg(id));
     else QMessageBox::information(this,"Informacion",QString("Hubo un erro agregando: %1").arg(id));

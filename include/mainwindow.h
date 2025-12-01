@@ -38,6 +38,7 @@ private slots:
     //void updateMascotaResult(bool ok, int id);
     //void deleteMascotaResult(bool ok);
     void onMascotaByIdReceived(const Mascota& m);
+    void onMascotaByImagenReceived(const QByteArray& img);
     void onMascotaByNameReceived(const QVector<Mascota>& lista);
 
 private:
