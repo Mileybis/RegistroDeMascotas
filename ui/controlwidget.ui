@@ -13,19 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="peso">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>80</y>
-     <width>37</width>
-     <height>12</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Peso:</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btneditar">
    <property name="geometry">
     <rect>
@@ -56,51 +43,6 @@
    </property>
    <property name="icon">
     <iconset theme="QIcon::ThemeIcon::ApplicationExit"/>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBoxtipo">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>50</y>
-     <width>111</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>Gato</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Perro</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Ave</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLineEdit" name="lineEditraza">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>80</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditsexo">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>110</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="btnagregar">
@@ -152,42 +94,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="nombre">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>50</y>
-     <width>37</width>
-     <height>12</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Nombre:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="edad">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>110</y>
-     <width>37</width>
-     <height>12</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Edad:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditEdad">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>110</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btnbuscar">
    <property name="geometry">
     <rect>
@@ -219,65 +125,175 @@
    <property name="frameShadow">
     <enum>QFrame::Shadow::Raised</enum>
    </property>
-  </widget>
-  <widget class="QLabel" name="labeltitulo1">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>20</y>
-     <width>91</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Registro de Mascota</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditpeso">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>80</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tipo">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>50</y>
-     <width>37</width>
-     <height>12</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Tipo:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="raza">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>80</y>
-     <width>37</width>
-     <height>12</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Raza:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditname">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>50</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
+   <widget class="QComboBox" name="comboBoxtipo">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>20</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Gato</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Perro</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ave</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="tipo">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>30</y>
+      <width>37</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tipo:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditpeso">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>50</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="peso">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>50</y>
+      <width>37</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Peso:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditEdad">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>90</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="edad">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>100</y>
+      <width>37</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Edad:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditsexo">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>100</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="sexo">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>37</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sexo:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="raza">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>37</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Raza:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditraza">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditname">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>40</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="nombre">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>37</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nombre:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labeltitulo1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Registro de Mascota</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QFrame" name="subirfoto">
    <property name="geometry">
@@ -293,19 +309,6 @@
    </property>
    <property name="frameShadow">
     <enum>QFrame::Shadow::Raised</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="sexo">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>110</y>
-     <width>37</width>
-     <height>12</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Sexo:</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnimprimir">
@@ -324,6 +327,16 @@
     <iconset theme="QIcon::ThemeIcon::DocumentPrint"/>
    </property>
   </widget>
+  <zorder>cuadro</zorder>
+  <zorder>btneditar</zorder>
+  <zorder>btneliminar</zorder>
+  <zorder>btnagregar</zorder>
+  <zorder>btnsubirfoto</zorder>
+  <zorder>lineEditBuscar</zorder>
+  <zorder>tableView</zorder>
+  <zorder>btnbuscar</zorder>
+  <zorder>subirfoto</zorder>
+  <zorder>btnimprimir</zorder>
  </widget>
  <resources/>
  <connections/>

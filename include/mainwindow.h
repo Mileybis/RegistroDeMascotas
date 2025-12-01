@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 class ControlWidget;
+class TcpClientManager;
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -17,11 +18,16 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+private slots:
+    void onClientConnected();
+    void onClientDisconnected();
+    void onClientError(const QString &msg);
+    void onJsonReceived(const QJsonObject &json);
 private:
     Ui::MainWindow *ui;
     ControlWidget *controlWidget;
-
+    TcpClientManager *tcpClientManager;
     int selectPuerto();
+    QString selectHost();
 };
 #endif // MAINWINDOW_H
