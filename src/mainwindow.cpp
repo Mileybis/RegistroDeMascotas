@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "mascota.h"
 #include "ui_mainwindow.h"
 #include <QInputDialog>
 #include <QLabel>
@@ -64,13 +65,47 @@ void MainWindow::onClientError(const QString &msg)
 
 void MainWindow::onJsonReceived(const QJsonObject &json)
 {
-    qDebug() << "JSON recibido en MainWindow:" << json;
+    statusBar()->showMessage("JSON recibido",1000);
 
     // Aquí se procesará la data real
     // Ejemplo:
     // controlWidget->cargarTabla(json["data"].toArray());
 }
-
+void MainWindow::requestAllMascota(){
+    QJsonObject req;
+    req["type"]="request_all";
+    tcpClientManager->sendJson(req);
+}
+void MainWindow::requestAddMascota(const Mascota &m){
+    QJsonObject req;
+    req["type"]="add";
+    req["data"]=mascotaToJson(m);
+    tcpClientManager->sendJson(req);
+}
+void MainWindow::requestDeleteMascota(int id){
+    QJsonObject req;
+    req["type"]="delete";
+    req["id"]=id;
+    tcpClientManager->sendJson(req);
+}
+void MainWindow::requestUpdateMascota(const Mascota &m){
+    QJsonObject req;
+    req["type"]="update";
+    req["data"]=mascotaToJson(m);
+    tcpClientManager->sendJson(req);
+}
+void MainWindow::requestResearchIdMascota(int id){
+    QJsonObject req;
+    req["type"]="research_id";
+    req["id"]=id;
+    tcpClientManager->sendJson(req);
+}
+void MainWindow::requestResearchNameMascota(const QString name){
+    QJsonObject req;
+    req["type"]="research_id";
+    req["name"]=name;
+    tcpClientManager->sendJson(req);
+}
 MainWindow::~MainWindow()
 {
     delete ui;

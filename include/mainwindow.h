@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "mascota.h"
 #include <QMainWindow>
 class ControlWidget;
 class TcpClientManager;
@@ -23,6 +24,13 @@ private slots:
     void onClientDisconnected();
     void onClientError(const QString &msg);
     void onJsonReceived(const QJsonObject &json);
+    //solicita al servidor
+    void requestAllMascota();
+    void requestAddMascota(const Mascota &m);
+    void requestDeleteMascota(int id);
+    void requestUpdateMascota(const Mascota &m);
+    void requestResearchIdMascota(int id);
+    void requestResearchNameMascota(const QString name);
 private:
     Ui::MainWindow *ui;
     ControlWidget *controlWidget;
