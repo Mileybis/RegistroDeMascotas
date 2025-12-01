@@ -2,11 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+class ControlWidget;
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
 }
+
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -19,5 +20,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    ControlWidget *controlWidget;
+
+    int selectPuerto();
 };
 #endif // MAINWINDOW_H
