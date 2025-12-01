@@ -28,6 +28,7 @@ private slots:
     void requestAllMascota();
     void requestAddMascota(const Mascota &m);
     void requestDeleteMascota(int id);
+    void requestImagenMascota(int id);
     void requestUpdateMascota(const Mascota &m);
     void requestResearchIdMascota(int id);
     void requestResearchNameMascota(const QString name);

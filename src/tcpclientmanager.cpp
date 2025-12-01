@@ -95,6 +95,10 @@ void TcpClientManager::onReadyRead()
             int id = obj.value("id").toInt();
             emit insertMascotaResult(ok, id);
         }
+        else if (type == "view_imagen"){
+            QByteArray img = QByteArray::fromBase64(obj.value("foto").toString().toLatin1());
+            emit MascotaByImagenReceived(img);
+        }
         else if (type == "id_research") {
             Mascota m = mascotaFromJson(obj["data"].toObject());
             emit mascotaByIdReceived(m);

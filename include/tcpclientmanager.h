@@ -22,6 +22,7 @@ signals:
     //void deleteMascotaResult(bool ok);
     void mascotaByIdReceived(const Mascota& m);
     void mascotaByNameReceived(const QVector<Mascota>& lista);
+    void MascotaByImagenReceived(const QByteArray& img);
 private slots:
     void onReadyRead();
     void onConnected();

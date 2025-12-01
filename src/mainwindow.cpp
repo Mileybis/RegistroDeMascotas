@@ -98,12 +98,19 @@ void MainWindow::requestResearchIdMascota(int id){
     req["id"]=id;
     tcpClientManager->sendJson(req);
 }
-void MainWindow::requestResearchNameMascota(const QString name){
+void MainWindow::requestImagenMascota(int id){
     QJsonObject req;
-    req["type"]="research_id";
-    req["name"]=name;
+    req["type"]="id_imagen";
+    req["id"]=id;
     tcpClientManager->sendJson(req);
 }
+void MainWindow::requestResearchNameMascota(const QString name){
+    QJsonObject req;
+    req["type"]="research_name";
+    req["nombre"]=name;
+    tcpClientManager->sendJson(req);
+}
+
 void MainWindow::onAllMascotasReceived(const QVector<Mascota>& lista){
     controlWidget->allMascotasReceived(lista);
 }
@@ -118,7 +125,9 @@ void MainWindow::onMascotaByIdReceived(const Mascota& m){
 void MainWindow::onMascotaByNameReceived(const QVector<Mascota>& lista){
     controlWidget->mascotaByNameReceived(lista);
 }
-
+void MainWindow::onMascotaByImagenReceived(const QByteArray& img){
+    controlWidget->ImagenMascota(img);
+}
 MainWindow::~MainWindow()
 {
     delete ui;

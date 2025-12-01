@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "mascota.h"
+#include "tcpclientmanager.h"
 namespace Ui {
 class ControlWidget;
 }
@@ -20,22 +21,26 @@ public:
     //void deleteMascotaResult(bool ok);
     void mascotaByIdReceived(const Mascota& m);
     void mascotaByNameReceived(const QVector<Mascota>& lista);
+    void ImagenMascota(const QByteArray& img);
 signals:
-    void RequestAllMascota();
+    void requestAllMascota();
     void requestAddMascota(const Mascota &m);
     void requestDeleteMascota(int id);
     void requestUpdateMascota(const Mascota &m);
     void requestResearchIdMascota(int id);
+    void requestImagenMascota(int id);
     void requestResearchNameMascota(const QString name);
 private slots:
-    void onRequestAllMascota();
-    void onRequestAddMascota(const Mascota &m);
-    void onRequestDeleteMascota(int id);
-    void onRequestUpdateMascota(const Mascota &m);
-    void onRequestResearchIdMascota(int id);
-    void onRequestResearchNameMascota(const QString name);
+    void onRequestResearchMascota();
+    void onRequestAddMascota();
+    void onRequestDeleteMascota();
+    void onRequestUpdateMascota();
+    void onRequestImagenMascota(int row,int column);
+    void subirFoto();
+    void imprimirDato();
 private:
     Ui::ControlWidget *ui;
+    TcpClientManager *client;
 };
 
 #endif // CONTROLWIDGET_H
