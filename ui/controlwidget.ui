@@ -347,7 +347,7 @@ QPushButton:pressed {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="LineEditName">
+   <widget class="QLineEdit" name="LineEditNombre">
     <property name="geometry">
      <rect>
       <x>62</x>
@@ -461,7 +461,7 @@ QPushButton:pressed {
     <iconset theme="QIcon::ThemeIcon::DocumentPrint"/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="LineEdit_Nombre">
+  <widget class="QLineEdit" name="LineEditNombreBuscar">
    <property name="geometry">
     <rect>
      <x>250</x>
@@ -621,7 +621,7 @@ QPushButton:pressed {
   <zorder>PushButtonAgregar</zorder>
   <zorder>PushButtonSubirFoto</zorder>
   <zorder>PushButtonImprimir</zorder>
-  <zorder>LineEdit_Nombre</zorder>
+  <zorder>LineEditNombreBuscar</zorder>
   <zorder>Label_Id</zorder>
   <zorder>Label_Nombre</zorder>
   <zorder>PushButtonBuscar</zorder>

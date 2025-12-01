@@ -83,7 +83,7 @@ void ControlWidget::insertMascotaResult(bool ok, int id){
 void ControlWidget::mascotaByIdReceived(const Mascota& m)
 {
     ui->spinBoxId->setValue(m.id);
-    ui->LineEditName->setText(m.nombre);
+    ui->LineEditNombre->setText(m.nombre);
     ui->LineEditRaza->setText(m.raza);
     ui->LineEditSexo->setText(m.sexo);
     ui->doubleSpinBoxPeso->setValue(m.peso);
@@ -113,10 +113,10 @@ void ControlWidget::mascotaByNameReceived(const QVector<Mascota>& lista)
 }
 void ControlWidget::onRequestResearchMascota(){
     int id = ui->spinBoxId->value();
-    QString name = ui->LineEditName->text();
+    QString name = ui->LineEditNombreBuscar->text();
     if(id >= 0){
         emit requestResearchIdMascota(id);
-    }else if(name.trimmed().isEmpty()){
+    }else if(!name.trimmed().isEmpty()){
         emit requestResearchNameMascota(name);
     }else{
         emit requestAllMascota();
@@ -126,7 +126,7 @@ void ControlWidget::onRequestResearchMascota(){
 }
 void ControlWidget::onRequestAddMascota(){
     Mascota m;
-    m.nombre = ui->LineEdit_Nombre->text();
+    m.nombre = ui->LineEditNombre->text();
     if(m.nombre.isEmpty()){
         QMessageBox::warning(this,"Advertencia",QString("Nombre Invalido"));
         return;
@@ -178,7 +178,7 @@ void ControlWidget::onRequestUpdateMascota(){
         QMessageBox::warning(this,"Advertencia",QString("id Invalido"));
         return;
     }
-    m.nombre = ui->LineEdit_Nombre->text();
+    m.nombre = ui->LineEditNombre->text();
     if(m.nombre.isEmpty()){
         QMessageBox::warning(this,"Advertencia",QString("Nombre Invalido"));
         return;
@@ -246,7 +246,7 @@ void ControlWidget::imprimirDato()
 {
     Mascota m;
     m.id = ui->spinBoxId->value();
-    m.nombre = ui->LineEdit_Nombre->text();
+    m.nombre = ui->LineEditNombre->text();
     m.raza = ui->LineEditRaza->text();
     m.sexo = ui->LineEditSexo->text();
     m.edad = ui->spinBoxEdad->value();
