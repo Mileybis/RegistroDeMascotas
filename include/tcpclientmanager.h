@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QTcpSocket>
 #include <QJsonObject>
+#include "mascota.h"
 class TcpClientManager : public QObject
 {
     Q_OBJECT
@@ -14,7 +15,13 @@ signals:
     void connected();
     void disconnected();
     void errorOccurred(const QString& error);
-    void jsonReceived(const QJsonObject& json);
+    //void jsonReceived(const QJsonObject& json);
+    void allMascotasReceived(const QVector<Mascota>& lista);
+    void insertMascotaResult(bool ok, int id);
+    //void updateMascotaResult(bool ok, int id);
+    //void deleteMascotaResult(bool ok);
+    void mascotaByIdReceived(const Mascota& m);
+    void mascotaByNameReceived(const QVector<Mascota>& lista);
 private slots:
     void onReadyRead();
     void onConnected();

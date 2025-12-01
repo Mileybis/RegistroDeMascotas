@@ -19,9 +19,15 @@ MainWindow::MainWindow(QWidget *parent)
             this,&MainWindow::onClientDisconnected);
     connect(tcpClientManager,&TcpClientManager::errorOccurred,
             this,&MainWindow::onClientError);
-    connect(tcpClientManager,&TcpClientManager::jsonReceived,
-            this,&MainWindow::onJsonReceived);
-
+    //repuesta del servidor al cliente
+    connect(tcpClientManager,&TcpClientManager::allMascotasReceived,
+            this,&MainWindow::onAllMascotasReceived);
+    connect(tcpClientManager,&TcpClientManager::insertMascotaResult,
+            this,&MainWindow::onInsertMascotaResult);
+    connect(tcpClientManager,&TcpClientManager::mascotaByIdReceived,
+            this,&MainWindow::onMascotaByIdReceived);
+    connect(tcpClientManager,&TcpClientManager::mascotaByNameReceived,
+            this,&MainWindow::onMascotaByNameReceived);
     tcpClientManager->connectToServer(selectHost(),selectPuerto());
 }
 int MainWindow::selectPuerto(){
@@ -63,14 +69,6 @@ void MainWindow::onClientError(const QString &msg)
     statusBar()->showMessage("Error: " + msg, 5000);
 }
 
-void MainWindow::onJsonReceived(const QJsonObject &json)
-{
-    statusBar()->showMessage("JSON recibido",1000);
-
-    // Aquí se procesará la data real
-    // Ejemplo:
-    // controlWidget->cargarTabla(json["data"].toArray());
-}
 void MainWindow::requestAllMascota(){
     QJsonObject req;
     req["type"]="request_all";
@@ -106,6 +104,21 @@ void MainWindow::requestResearchNameMascota(const QString name){
     req["name"]=name;
     tcpClientManager->sendJson(req);
 }
+void MainWindow::onAllMascotasReceived(const QVector<Mascota>& lista){
+    controlWidget->allMascotasReceived(lista);
+}
+void MainWindow::onInsertMascotaResult(bool ok, int id){
+    controlWidget->insertMascotaResult(ok,id);
+}
+//void MainWindow::updateMascotaResult(bool ok, int id);
+//void deleteMascotaResult(bool ok);
+void MainWindow::onMascotaByIdReceived(const Mascota& m){
+    controlWidget->mascotaByIdReceived(m);
+}
+void MainWindow::onMascotaByNameReceived(const QVector<Mascota>& lista){
+    controlWidget->mascotaByNameReceived(lista);
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;

@@ -2,6 +2,7 @@
 #include <QJsonDocument>
 #include <QJsonParseError>
 #include <QDebug>
+#include "mascota.h"
 TcpClientManager::TcpClientManager(QObject *parent)
     : QObject(parent),
     socket(new QTcpSocket(this))
@@ -50,12 +51,10 @@ void TcpClientManager::onErrorOccurred(QAbstractSocket::SocketError)
 {
     emit errorOccurred(socket->errorString());
 }
-
 void TcpClientManager::onReadyRead()
 {
     buffer.append(socket->readAll());
 
-    // Procesar mensajes línea por línea (terminan en '\n')
     while (true) {
         int index = buffer.indexOf('\n');
         if (index < 0)
@@ -78,6 +77,39 @@ void TcpClientManager::onReadyRead()
             continue;
         }
 
-        emit jsonReceived(doc.object());
+        QJsonObject obj = doc.object();
+        QString type = obj.value("type").toString();
+
+        // === CLASIFICACIÓN POR TYPE ===
+        if (type == "all_table") {
+            const QJsonArray arr = obj["data"].toArray();
+            QVector<Mascota> lista;
+            lista.reserve(arr.size());
+            for (auto v : arr)
+                lista.append(mascotaFromJson(v.toObject()));
+
+            emit allMascotasReceived(lista);
+        }
+        else if (type == "insert_ok" || type == "insert_error") {
+            bool ok = (type == "insert_ok");
+            int id = obj.value("id").toInt();
+            emit insertMascotaResult(ok, id);
+        }
+        else if (type == "id_research") {
+            Mascota m = mascotaFromJson(obj["data"].toObject());
+            emit mascotaByIdReceived(m);
+        }
+        else if (type == "name_research") {
+            const QJsonArray arr = obj["data"].toArray();
+            QVector<Mascota> lista;
+            lista.reserve(arr.size());
+            for (auto v : arr)
+                lista.append(mascotaFromJson(v.toObject()));
+
+            emit mascotaByNameReceived(lista);
+        }
+        else {
+            qWarning() << "Tipo de mensaje desconocido en cliente:" << type;
+        }
     }
 }

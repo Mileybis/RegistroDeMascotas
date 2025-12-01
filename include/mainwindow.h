@@ -23,7 +23,7 @@ private slots:
     void onClientConnected();
     void onClientDisconnected();
     void onClientError(const QString &msg);
-    void onJsonReceived(const QJsonObject &json);
+    //void onJsonReceived(const QJsonObject &json);
     //solicita al servidor
     void requestAllMascota();
     void requestAddMascota(const Mascota &m);
@@ -31,6 +31,14 @@ private slots:
     void requestUpdateMascota(const Mascota &m);
     void requestResearchIdMascota(int id);
     void requestResearchNameMascota(const QString name);
+    //repuestas del servidor
+    void onAllMascotasReceived(const QVector<Mascota>& lista);
+    void onInsertMascotaResult(bool ok, int id);
+    //void updateMascotaResult(bool ok, int id);
+    //void deleteMascotaResult(bool ok);
+    void onMascotaByIdReceived(const Mascota& m);
+    void onMascotaByNameReceived(const QVector<Mascota>& lista);
+
 private:
     Ui::MainWindow *ui;
     ControlWidget *controlWidget;
