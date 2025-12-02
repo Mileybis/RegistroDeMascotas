@@ -78,14 +78,25 @@ void ControlWidget::ImagenMascota(const QByteArray& img)
 }
 void ControlWidget::insertMascotaResult(bool ok, int id){
     if(ok) QMessageBox::information(this,"Informacion",QString("Se Agrego Con exito: %1").arg(id));
-    else QMessageBox::information(this,"Informacion",QString("Hubo un erro agregando: %1").arg(id));
+    else QMessageBox::information(this,"Informacion",QString("Hubo un error agregando: %1").arg(id));
+    emit requestAllMascota();
+}
+void ControlWidget::updateMascotaResult(bool ok, int id){
+    if(ok) QMessageBox::information(this,"Informacion",QString("Se modifico Con exito: %1").arg(id));
+    else QMessageBox::information(this,"Informacion",QString("Hubo un error modificando: %1").arg(id));
+    emit requestAllMascota();
+}
+void ControlWidget::deleteMascotaResult(bool ok){
+    if(ok) QMessageBox::information(this,"Informacion",QString("Se Elimino Con exito"));
+    else QMessageBox::information(this,"Informacion",QString("Hubo un error Eliminando"));
+    emit requestAllMascota();
 }
 void ControlWidget::mascotaByIdReceived(const Mascota& m)
 {
     ui->spinBoxId->setValue(m.id);
     ui->LineEditNombre->setText(m.nombre);
     ui->LineEditRaza->setText(m.raza);
-    ui->LineEditSexo->setText(m.sexo);
+    ui->comboBoxSexo->setCurrentText(m.sexo);
     ui->doubleSpinBoxPeso->setValue(m.peso);
     ui->spinBoxEdad->setValue(m.edad);
     ui->ComboBoxTipo->setCurrentText(m.especie);
@@ -143,7 +154,7 @@ void ControlWidget::onRequestAddMascota(){
         return;
     }
     m.peso = ui->doubleSpinBoxPeso->value();
-    m.sexo = ui->LineEditSexo->text();
+    m.sexo = ui->comboBoxSexo->currentText();
     if(m.sexo.isEmpty()){
         QMessageBox::warning(this,"Advertencia",QString("Sexo Invalido"));
         return;
@@ -195,7 +206,7 @@ void ControlWidget::onRequestUpdateMascota(){
         return;
     }
     m.peso = ui->doubleSpinBoxPeso->value();
-    m.sexo = ui->LineEditSexo->text();
+    m.sexo = ui->comboBoxSexo->currentText();
     if(m.sexo.isEmpty()){
         QMessageBox::warning(this,"Advertencia",QString("Sexo Invalido"));
         return;
@@ -248,7 +259,7 @@ void ControlWidget::imprimirDato()
     m.id = ui->spinBoxId->value();
     m.nombre = ui->LineEditNombre->text();
     m.raza = ui->LineEditRaza->text();
-    m.sexo = ui->LineEditSexo->text();
+    m.sexo = ui->comboBoxSexo->currentText();
     m.edad = ui->spinBoxEdad->value();
     m.peso = ui->doubleSpinBoxPeso->value();
     m.especie = ui->ComboBoxTipo->currentText();
@@ -309,6 +320,14 @@ void ControlWidget::onRequestImagenMascota(int row,int column){
         return;
     }
     emit requestImagenMascota(id);
+    ui->spinBoxId->setValue(id);
+    ui->LineEditNombre->setText(ui->tableWidget->item(row,1)->text());
+    ui->LineEditRaza->setText(ui->tableWidget->item(row,2)->text());
+    ui->comboBoxSexo->setCurrentText(ui->tableWidget->item(row,3)->text());
+    ui->doubleSpinBoxPeso->setValue(ui->tableWidget->item(row,4)->text().toInt());
+    ui->spinBoxEdad->setValue(ui->tableWidget->item(row,5)->text().toInt());
+    ui->ComboBoxTipo->setCurrentText(ui->tableWidget->item(row,6)->text());
+
 }
 ControlWidget::~ControlWidget()
 {

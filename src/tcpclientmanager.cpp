@@ -95,6 +95,15 @@ void TcpClientManager::onReadyRead()
             int id = obj.value("id").toInt();
             emit insertMascotaResult(ok, id);
         }
+        else if (type == "update_ok" || type == "update_error") {
+            bool ok = (type == "update_ok");
+            int id = obj.value("id").toInt();
+            emit updateMascotaResult(ok, id);
+        }
+        else if (type == "delete_ok" || type == "delete_error") {
+            bool ok = (type == "delete_ok");
+            emit deleteMascotaResult(ok);
+        }
         else if (type == "view_imagen_result"){
             QByteArray img = QByteArray::fromBase64(obj.value("foto").toString().toLatin1());
             emit MascotaByImagenReceived(img);

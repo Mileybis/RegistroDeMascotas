@@ -18,8 +18,8 @@ signals:
     //void jsonReceived(const QJsonObject& json);
     void allMascotasReceived(const QVector<Mascota>& lista);
     void insertMascotaResult(bool ok, int id);
-    //void updateMascotaResult(bool ok, int id);
-    //void deleteMascotaResult(bool ok);
+    void updateMascotaResult(bool ok, int id);
+    void deleteMascotaResult(bool ok);
     void mascotaByIdReceived(const Mascota& m);
     void mascotaByNameReceived(const QVector<Mascota>& lista);
     void MascotaByImagenReceived(const QByteArray& img);

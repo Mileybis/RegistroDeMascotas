@@ -24,6 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
             this,&MainWindow::onAllMascotasReceived);
     connect(tcpClientManager,&TcpClientManager::insertMascotaResult,
             this,&MainWindow::onInsertMascotaResult);
+    connect(tcpClientManager,&TcpClientManager::updateMascotaResult,
+            this,&MainWindow::updateMascotaResult);
+    connect(tcpClientManager,&TcpClientManager::deleteMascotaResult,
+            this,&MainWindow::deleteMascotaResult);
     connect(tcpClientManager,&TcpClientManager::mascotaByIdReceived,
             this,&MainWindow::onMascotaByIdReceived);
     connect(tcpClientManager,&TcpClientManager::mascotaByNameReceived,
@@ -130,8 +134,12 @@ void MainWindow::onAllMascotasReceived(const QVector<Mascota>& lista){
 void MainWindow::onInsertMascotaResult(bool ok, int id){
     controlWidget->insertMascotaResult(ok,id);
 }
-//void MainWindow::updateMascotaResult(bool ok, int id);
-//void deleteMascotaResult(bool ok);
+void MainWindow::updateMascotaResult(bool ok, int id){
+    controlWidget->updateMascotaResult(ok,id);
+}
+void MainWindow::deleteMascotaResult(bool ok){
+    controlWidget->deleteMascotaResult(ok);
+}
 void MainWindow::onMascotaByIdReceived(const Mascota& m){
     controlWidget->mascotaByIdReceived(m);
 }

@@ -35,8 +35,8 @@ private slots:
     //repuestas del servidor
     void onAllMascotasReceived(const QVector<Mascota>& lista);
     void onInsertMascotaResult(bool ok, int id);
-    //void updateMascotaResult(bool ok, int id);
-    //void deleteMascotaResult(bool ok);
+    void updateMascotaResult(bool ok, int id);
+    void deleteMascotaResult(bool ok);
     void onMascotaByIdReceived(const Mascota& m);
     void onMascotaByImagenReceived(const QByteArray& img);
     void onMascotaByNameReceived(const QVector<Mascota>& lista);
