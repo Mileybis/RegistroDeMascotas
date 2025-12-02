@@ -93,6 +93,29 @@ void ControlWidget::deleteMascotaResult(bool ok){
 }
 void ControlWidget::mascotaByIdReceived(const Mascota& m)
 {
+    auto tabla = ui->tableWidget;
+
+    tabla->clear();
+    tabla->setRowCount(0);
+
+    QStringList headers = {
+        "ID","Nombre","Raza","Genero","Peso kg","Edad","Especie"
+    };
+
+    tabla->setColumnCount(headers.size());
+    tabla->setHorizontalHeaderLabels(headers);
+
+    int row = 0;
+    tabla->setItem(row, 0, new QTableWidgetItem(QString::number(m.id)));
+    tabla->setItem(row, 1, new QTableWidgetItem(m.nombre));
+    tabla->setItem(row, 2, new QTableWidgetItem(m.raza));
+    tabla->setItem(row, 3, new QTableWidgetItem(m.sexo));
+    tabla->setItem(row, 4, new QTableWidgetItem(QString::number(m.peso)));
+    tabla->setItem(row, 5, new QTableWidgetItem(QString::number(m.edad)));
+    tabla->setItem(row, 6, new QTableWidgetItem(m.especie));
+
+    tabla->resizeColumnsToContents();
+
     ui->spinBoxId->setValue(m.id);
     ui->LineEditNombre->setText(m.nombre);
     ui->LineEditRaza->setText(m.raza);
@@ -112,6 +135,7 @@ void ControlWidget::mascotaByIdReceived(const Mascota& m)
         ui->labelImagen->clear();
         ui->labelImagen->setText("Sin Imagen");
     }
+
 }
 void ControlWidget::mascotaByNameReceived(const QVector<Mascota>& lista)
 {
@@ -132,8 +156,6 @@ void ControlWidget::onRequestResearchMascota(){
     }else{
         emit requestAllMascota();
     }
-
-
 }
 void ControlWidget::onRequestAddMascota(){
     Mascota m;

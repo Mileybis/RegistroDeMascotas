@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
             this,&MainWindow::requestResearchIdMascota);
     connect(controlWidget,&ControlWidget::requestResearchNameMascota,
             this,&MainWindow::requestResearchNameMascota);
+    requestAllMascota();
 }
 int MainWindow::selectPuerto(){
     bool ok;
