@@ -58,10 +58,6 @@ QPushButton:pressed {
    <property name="text">
     <string>Editar Mascota</string>
    </property>
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::DocumentSaveAs">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
   </widget>
   <widget class="QPushButton" name="PushButtonEliminar">
    <property name="geometry">
@@ -94,10 +90,6 @@ QPushButton:pressed {
    <property name="text">
     <string>Eliminar Mascota</string>
    </property>
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::ApplicationExit">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
   </widget>
   <widget class="QPushButton" name="PushButtonAgregar">
    <property name="geometry">
@@ -129,10 +121,6 @@ QPushButton:pressed {
    </property>
    <property name="text">
     <string>Agregar Mascota</string>
-   </property>
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::ListAdd">
-     <normaloff>.</normaloff>.</iconset>
    </property>
   </widget>
   <widget class="QPushButton" name="PushButtonSubirFoto">
@@ -174,10 +162,6 @@ QPushButton:pressed {
    <property name="text">
     <string>Subir foto</string>
    </property>
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::CameraWeb">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
   </widget>
   <widget class="QFrame" name="cuadro">
    <property name="geometry">
@@ -197,7 +181,7 @@ QPushButton:pressed {
 </string>
    </property>
    <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
+    <enum>QFrame::Shape::NoFrame</enum>
    </property>
    <widget class="QComboBox" name="ComboBoxTipo">
     <property name="enabled">
@@ -473,10 +457,6 @@ QPushButton:pressed {
    <property name="text">
     <string>Imprimir</string>
    </property>
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::DocumentPrint">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
   </widget>
   <widget class="QLineEdit" name="LineEditNombreBuscar">
    <property name="geometry">
@@ -571,10 +551,6 @@ QPushButton:pressed {
    <property name="text">
     <string>Buscar</string>
    </property>
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::EditFind">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
   </widget>
   <widget class="QLabel" name="labelImagen">
    <property name="geometry">
@@ -660,10 +636,6 @@ QPushButton:pressed {
    </property>
    <property name="text">
     <string>Mostrar todo</string>
-   </property>
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::DocumentPrint">
-     <normaloff>.</normaloff>.</iconset>
    </property>
   </widget>
   <zorder>cuadro</zorder>
