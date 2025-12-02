@@ -304,7 +304,6 @@ void ControlWidget::imprimirDato()
     QPrinter printer(QPrinter::HighResolution);
     QPrintDialog dialog(&printer, this);
 
-    // Usuario elige impresora o PDF
     if (dialog.exec() != QDialog::Accepted)
         return;
 
@@ -314,28 +313,54 @@ void ControlWidget::imprimirDato()
         return;
     }
 
-    int y = 200;
-    int x = 200;
+    // ============================
+    // ESCALA PARA AGRANDAR TODO
+    // ============================
+    painter.scale(1.45, 1.45);  // Ajusta 1.35–1.55 según gusto
 
-    QFont titleFont("Arial", 16, QFont::Bold);
-    QFont textFont("Arial", 12);
+    int x = 200;
+    int y = 250;
+
+    // ======= TÍTULO =======
+    QFont titleFont("Arial", 22, QFont::Bold);
     painter.setFont(titleFont);
-    painter.drawText(x, y, "Ficha de Mascota");
+    painter.drawText(x, y, "FICHA DE MASCOTA");
+    y += 500;
+
+    // ======= LÍNEA DE ENCABEZADO =======
+    painter.setPen(QPen(Qt::black, 3));
+    painter.drawLine(x, y, x + 3000, y);
     y += 300;
 
+    // ======= TEXTO =======
+    QFont textFont("Arial", 16);
     painter.setFont(textFont);
-    painter.drawText(x, y, QString("ID: %1").arg(m.id)); y += 200;
-    painter.drawText(x, y, QString("Nombre: %1").arg(m.nombre)); y += 200;
-    painter.drawText(x, y, QString("Raza: %1").arg(m.raza)); y += 200;
-    painter.drawText(x, y, QString("Sexo: %1").arg(m.sexo)); y += 200;
-    painter.drawText(x, y, QString("Edad: %1 años").arg(m.edad)); y += 200;
-    painter.drawText(x, y, QString("Peso: %1 kg").arg(m.peso)); y += 200;
-    painter.drawText(x, y, QString("Especie: %1").arg(m.especie)); y += 300;
+    painter.setPen(Qt::black);
 
+    int salto = 320;  // separado grande
+
+    painter.drawText(x, y, QString("ID: %1").arg(m.id));                 y += salto;
+    painter.drawText(x, y, QString("Nombre: %1").arg(m.nombre));         y += salto;
+    painter.drawText(x, y, QString("Raza: %1").arg(m.raza));             y += salto;
+    painter.drawText(x, y, QString("Sexo: %1").arg(m.sexo));             y += salto;
+    painter.drawText(x, y, QString("Edad: %1 años").arg(m.edad));        y += salto;
+    painter.drawText(x, y, QString("Peso: %1 kg").arg(m.peso));          y += salto;
+    painter.drawText(x, y, QString("Especie: %1").arg(m.especie));       y += salto + 200;
+
+    // ======= LÍNEA ANTES DE LA IMAGEN =======
+    painter.setPen(QPen(Qt::black, 2));
+    painter.drawLine(x, y, x + 3000, y);
+    y += 250;
+
+    // ======= FOTO =======
     if (!pix.isNull()) {
-        int imgW = 600;
+
+        int imgW = 1000;   // más grande
         int imgH = (pix.height() * imgW) / pix.width();
+
         painter.drawPixmap(x, y, imgW, imgH, pix);
+
+        y += imgH + 200;
     }
 
     painter.end();
