@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>528</width>
+    <width>541</width>
     <height>456</height>
    </rect>
   </property>
@@ -32,7 +32,7 @@ QWidget {
     <rect>
      <x>380</x>
      <y>330</y>
-     <width>131</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -64,7 +64,7 @@ QPushButton:pressed {
     <rect>
      <x>380</x>
      <y>290</y>
-     <width>131</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -96,7 +96,7 @@ QPushButton:pressed {
     <rect>
      <x>380</x>
      <y>250</y>
-     <width>131</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -162,13 +162,16 @@ QPushButton:pressed {
    <property name="text">
     <string>Subir foto</string>
    </property>
+   <property name="icon">
+    <iconset theme="emblem-photos"/>
+   </property>
   </widget>
   <widget class="QFrame" name="cuadro">
    <property name="geometry">
     <rect>
      <x>180</x>
      <y>20</y>
-     <width>331</width>
+     <width>341</width>
      <height>161</height>
     </rect>
    </property>
@@ -181,7 +184,7 @@ QPushButton:pressed {
 </string>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Shape::NoFrame</enum>
+    <enum>QFrame::NoFrame</enum>
    </property>
    <widget class="QComboBox" name="ComboBoxTipo">
     <property name="enabled">
@@ -431,7 +434,7 @@ QPushButton:pressed {
     <rect>
      <x>380</x>
      <y>370</y>
-     <width>131</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -525,7 +528,7 @@ QPushButton:pressed {
     <rect>
      <x>380</x>
      <y>210</y>
-     <width>131</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -550,6 +553,9 @@ QPushButton:pressed {
    </property>
    <property name="text">
     <string>Buscar</string>
+   </property>
+   <property name="icon">
+    <iconset theme="edit-find"/>
    </property>
   </widget>
   <widget class="QLabel" name="labelImagen">
@@ -611,7 +617,7 @@ QPushButton:pressed {
     <rect>
      <x>380</x>
      <y>410</y>
-     <width>131</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
