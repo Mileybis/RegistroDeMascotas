@@ -106,6 +106,7 @@ void ControlWidget::mascotaByIdReceived(const Mascota& m)
     tabla->setHorizontalHeaderLabels(headers);
 
     int row = 0;
+    tabla->insertRow(row);
     tabla->setItem(row, 0, new QTableWidgetItem(QString::number(m.id)));
     tabla->setItem(row, 1, new QTableWidgetItem(m.nombre));
     tabla->setItem(row, 2, new QTableWidgetItem(m.raza));
