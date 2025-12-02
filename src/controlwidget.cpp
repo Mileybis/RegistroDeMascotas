@@ -26,6 +26,9 @@ ControlWidget::ControlWidget(QWidget *parent)
             this,&ControlWidget::imprimirDato);
     connect(ui->tableWidget,&QTableWidget::cellClicked,
             this,&ControlWidget::onRequestImagenMascota);
+    connect(ui->PushButtonMostrar,&QPushButton::clicked,this,[=](){
+        emit requestAllMascota();
+    });
 }
 void ControlWidget::allMascotasReceived(const QVector<Mascota>& lista)
 {
@@ -93,6 +96,10 @@ void ControlWidget::deleteMascotaResult(bool ok){
 }
 void ControlWidget::mascotaByIdReceived(const Mascota& m)
 {
+    if (m.id == -1){
+        QMessageBox::information(this, "Resultado", "No se encontraron coincidencias");
+        return;
+    }
     auto tabla = ui->tableWidget;
 
     tabla->clear();
